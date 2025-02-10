@@ -1,11 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useState } from "react";
+import { SignForm } from "@/components/SignForm";
+import { SignInfo } from "@/components/SignInfo";
 
 const Index = () => {
+  const [formData, setFormData] = useState<{
+    birthDate: Date;
+    birthPlace: string;
+  } | null>(null);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-astro-soft via-white to-astro-light p-4">
+      <div className="container mx-auto py-8 flex flex-col items-center justify-center space-y-8">
+        {!formData ? (
+          <SignForm onSubmit={setFormData} />
+        ) : (
+          <SignInfo birthDate={formData.birthDate} />
+        )}
       </div>
     </div>
   );
