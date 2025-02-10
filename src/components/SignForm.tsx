@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { CalendarIcon, MapPin } from "lucide-react";
+import { CalendarIcon, MapPin, ArrowLeft } from "lucide-react";
 import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { format } from "date-fns";
@@ -24,6 +24,10 @@ export const SignForm = ({ onSubmit }: SignFormProps) => {
       onSubmit({ birthDate, birthPlace });
     }
   };
+
+  const currentYear = new Date().getFullYear();
+  const fromYear = currentYear - 100;
+  const toYear = currentYear;
 
   return (
     <Card className="w-full max-w-md p-6 space-y-6 bg-white/80 backdrop-blur-sm border-astro-soft animate-fade-in">
@@ -64,6 +68,10 @@ export const SignForm = ({ onSubmit }: SignFormProps) => {
                 onSelect={setBirthDate}
                 locale={ptBR}
                 initialFocus
+                fromYear={fromYear}
+                toYear={toYear}
+                captionLayout="dropdown-buttons"
+                className="rounded-md border"
               />
             </PopoverContent>
           </Popover>
