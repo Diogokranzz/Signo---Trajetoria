@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { CalendarIcon, MapPin, ArrowLeft } from "lucide-react";
+import { CalendarIcon, MapPin } from "lucide-react";
 import { Calendar } from "./ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { format } from "date-fns";
